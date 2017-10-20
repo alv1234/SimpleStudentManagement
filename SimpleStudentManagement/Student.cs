@@ -12,6 +12,20 @@ namespace SimpleStudentManagement
         public string nachname { get; set; }
         public int alter { get; set; }
         public string studiengang { get; set; }
-        public Boolean beitragBezahlt { get; set; }
+        public bool beitragBezahlt { get; set; }
+
+        public Student()
+        {
+
+        }
+
+        public Student(string _vorname, string _nachname, int _alter, string _studiengang, bool _beitragBezahlt)
+        {
+            this.vorname = _vorname;
+            this.nachname = _nachname;
+            this.alter = _alter;
+            this.studiengang = _studiengang;
+            this.beitragBezahlt = _beitragBezahlt;
+        }
     }
 }

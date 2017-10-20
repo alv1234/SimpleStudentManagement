@@ -25,29 +25,32 @@
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
                             <RowDefinition Height="30*" />
                         </Grid.RowDefinitions>
                         <Label Content="Vorname"  Grid.Column="0" Grid.Row="0" />
                         <Label Content="Nachname"  Grid.Column="0" Grid.Row="1" />
                         <Label Content="Studiengang"  Grid.Column="0" Grid.Row="2" />
                         <Label Content="Beitrag bez."  Grid.Column="0" Grid.Row="3" />
-                        <TextBox Margin="4" Grid.Column="1" Grid.Row="0"/>
-                        <TextBox Margin="4" Grid.Column="1" Grid.Row="1"/>
-                        <ComboBox Margin="4" Grid.Column="1" Grid.Row="2"/>
-                        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" />
-                        <Button  Margin="5" Content="Speichern" Grid.Row="4" Grid.ColumnSpan="2" Click="SpeichernBtnClicked"/>
+                        <Label Content="Alter" Grid.Column="0" Grid.Row="4" />
+                        <TextBox x:Name="tboVorname" Margin="4" Grid.Column="1" Grid.Row="0"/>
+                        <TextBox x:Name="tboNachname" Margin="4" Grid.Column="1" Grid.Row="1"/>
+                        <ComboBox x:Name="cboStudien" Margin="4" Grid.Column="1" Grid.Row="2"/>
+                        <CheckBox x:Name="chkBeitrag" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" />
+                        <TextBox x:Name="tboAlter" Margin="4" Grid.Column="1" Grid.Row="4" />
+                        <Button  x:Name="btnSpeichern" Margin="5" Content="Speichern" Grid.Row="5" Grid.ColumnSpan="2" Click="SpeichernBtnClicked"/>
                     </Grid>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="90*" />
                             <RowDefinition Height="10*" />
                         </Grid.RowDefinitions>
-                        <DataGrid Grid.Row="0">
+                        <DataGrid x:Name="dtgListe" Grid.Row="0">
 
                         </DataGrid>
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button  Margin="5" Content="Edit" Click="EditBtnClick"/>
-                            <Button  Margin="5" Content="Löschen" Click="LoeschenBtnClick"/>
+                            <Button  x:Name="btnEdit" Margin="5" Content="Edit" Click="EditBtnClick"/>
+                            <Button x:Name="btnLoeschen" Margin="5" Content="Löschen" Click="LoeschenBtnClick"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -59,10 +62,10 @@
                         <ColumnDefinition Width="355*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel>
-                        <TextBox Margin="5"/>
-                        <Button Margin="5" Content="Speichern" Click="MasterClickBtnClick"/>
+                        <TextBox x:Name="tboStudium" Margin="5"/>
+                        <Button x:Name="btnMasterSpeichern" Margin="5" Content="Speichern" Click="MasterClickBtnClick"/>
                     </StackPanel>
-                    <ListBox Grid.Column="1"></ListBox>
+                    <ListBox x:Name="lboDaten" Grid.Column="1"></ListBox>
                 </Grid>
             </TabItem>
 

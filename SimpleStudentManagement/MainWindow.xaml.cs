@@ -22,6 +22,8 @@ namespace SimpleStudentManagement
 
     public partial class MainWindow : Window
     {
+        private List<Student> Students = new List<Student>();
+        private List<string> studiengaenge = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +31,42 @@ namespace SimpleStudentManagement
 
         private void SpeichernBtnClicked(object sender, RoutedEventArgs e)
         {
-            //to come
+            Students.Add(new Student(
+                tboVorname.Text,
+                tboNachname.Text,
+                int.Parse(tboAlter.Text),
+                cboStudien.SelectedItem.ToString(),
+                chkBeitrag.IsChecked.GetValueOrDefault()
+                ));
+            dtgListe.ItemsSource = null;
+            dtgListe.ItemsSource = Students;
+        }
+
+        private void MasterClickBtnClick(object sender, RoutedEventArgs e)
+        {
+            studiengaenge.Add(tboStudium.Text);
+            cboStudien.ItemsSource = null;
+            cboStudien.ItemsSource = studiengaenge;
+            lboDaten.ItemsSource = null;
+            lboDaten.ItemsSource = studiengaenge;
+        }
+
+        private void EditBtnClick(object sender, RoutedEventArgs e)
+        {         
+            var temp = dtgListe.SelectedItem as Student;
+            tboVorname.Text = temp.vorname;
+            tboNachname.Text = temp.nachname;
+            tboStudium.Text = temp.studiengang;
+            tboAlter.Text = temp.alter.ToString();
+            chkBeitrag.IsChecked = temp.beitragBezahlt;
+            
+        }
+
+        private void LoeschenBtnClick(object sender, RoutedEventArgs e)
+        {
+            Students.RemoveAt(dtgListe.SelectedIndex);
+            dtgListe.ItemsSource = null;
+            dtgListe.ItemsSource = Students;
         }
     }
 }
